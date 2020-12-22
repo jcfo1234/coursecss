@@ -1,0 +1,56 @@
+/*
+transition-property: property/ies - all - none
+transition-duration: duration/s
+transition-delay: delay/s
+transition-timing-function: linear|ease|ease-in|ease-out|ease-in-out|step-start|step-end|steps(int,start|end)|initial|inherit
+transition
+*/
+
+* {
+    font-family: 'Sen', sans-serif;
+    font-weight: 100;
+}
+
+.container {
+    background-color: #86f;
+    padding: 20px 5px;
+}
+
+.caja {
+    background: #025;
+    height: 100px;
+    width: 100px;
+    margin: 30px;
+    position: relative;
+    left: 0;
+    /*Mandatory properties for transition*/
+    transition-property: left, background;
+    transition-duration: 1s;
+    /*optional transition properties*/
+    transition-delay: 0;
+}
+
+.container:hover>.caja {
+    background: lightgreen;
+    left: 80%;
+}
+
+.caja:first-child {
+    transition-timing-function: linear;
+}
+
+.caja:nth-child(2) {
+    transition-timing-function: ease;
+}
+
+.caja:nth-child(3) {
+    transition-timing-function: ease-in;
+}
+
+.caja:nth-child(4) {
+    transition-timing-function: ease-out;
+}
+
+.caja:nth-child(5) {
+    transition-timing-function: ease-in-out;
+}

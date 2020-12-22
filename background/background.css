@@ -1,0 +1,31 @@
+/*
+Background
+
+background-color: color
+background-image: url()
+background-size: x, y, auto, cover, contain
+background-position: left, top, bottom, right, center ++ left, top, bottom, right center
+background-attachment: scroll | fixed | inherit
+background-clip: border-box | padding-box | content-box
+background-origin - origen de la foto (valores de arriba)
+*/
+
+* {
+    font-family: 'Sen', sans-serif;
+    font-weight: 100;
+}
+
+.container {
+    padding: 20px 5px;
+    background: #398;
+    border: 2px solid #f00;
+    height: 350px;
+    margin: 40px 0;
+    background-image: url("https://i.pinimg.com/originals/c9/71/f1/c971f13e14c8e67c65432f49f4f9b2cc.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    /*background-clip: content-box;*/
+    /*background-origin: content-box;*/
+    background-position: left top;
+    background-attachment: scroll;
+}

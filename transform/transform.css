@@ -1,0 +1,37 @@
+/*
+transform: translateX(x) - translateY(y) - translate(x - x,y) -- Si se usan porcentajes son porcentajes relativos al elemento - animar
+transform: scale(xy - x,y), scaleX(x), scaleY(y)
+transform: rotate(angleUnit), rotateX(angleUnit), rotateZ(angleUnit), rotate3D(angleUnit) || angleUnit = deg, grad, rad, turn
+transform: skew (angleUnit)
+
+margin rompe el layout en el navegador y vuelve a pintar el DOM de nuevo en el navegador (consume mucho recurso)
+translate crea una capa intermedia para el DOM y no destruye el layout actual en el navegador (consume poco recurso)
+*/
+
+* {
+    font-family: 'Sen', sans-serif;
+    font-weight: 100;
+}
+
+.container {
+    padding: 20px 5px;
+    background: #86f;
+}
+
+.caja {
+    background: #025;
+    height: 80px;
+    width: 80px;
+    margin: 20px;
+    display: flex;
+    color: #fff;
+    transition: transform 1s;
+}
+
+.caja:hover {
+    transform: scale(2) translate(50px);
+}
+
+b {
+    margin: auto;
+}

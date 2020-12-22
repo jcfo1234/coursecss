@@ -1,0 +1,62 @@
+/*
+Requiere de flex-container y de un flex-item
+Ejes: main-axis, cross-axis
+main-start + main-end = main-axis (por defecto de izquierda a derecha)
+cross-start + cross-end = cross-axis (por defector de arriba a abajo de la pantalla)
+flex-items son los hijos directos
+
+Flex-wrap: no-wrap, wrap, wrap-reverse
+Flex-flow: flex-direction, flex-wrap
+Justify-content: center, space-around, space-between, space-evenly (main axis)
+Align-items: flex-start, center, flex-end, stretch, baseline
+Align-content: flex-start, center, flex-end, stretch, baseline
+
+Propiedades de los items
+align-self
+margin-(direction)
+flex-grow: Espacio asignado + sobrante / grows Main axis
+flex-shrink: Espacio que cede (Main axis)
+flex-basis: Medicion antes de encogerse en auto, agarra el width y si no tiene mas prioridad main-axis
+flex (flex-grow, flex-shrink, flex-basis. 1er parametro obligatorio)
+order (como el z-index pero en el eje en el que apunta el main axis)
+*/
+
+* {
+    font-family: 'Sen', sans-serif;
+    font-weight: 100;
+}
+
+.flex-container {
+    display: flex;
+    /*flex-wrap and flex-direction*/
+    /*flex-flow: column wrap;*/
+    /*flex-wrap: wrap;*/
+    justify-content: space-evenly;
+    height: 100vh;
+    flex-direction: row;
+    /*align-items: baseline;*/
+}
+
+.flex-item {
+    background-color: #248;
+    height: 100px;
+    min-width: 150px;
+    text-align: center;
+    width: 300px;
+    flex: 1;
+}
+
+.flex-item a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.orange {
+    background: #dA0;
+    flex: 1 0 350px;
+    order: 4;
+}
+
+.green {
+    background: #1b0;
+}

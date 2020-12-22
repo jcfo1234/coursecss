@@ -1,0 +1,124 @@
+/* 
+Grid Class 
+
+Conceptos basicos
+-grid
+-grid container
+-grid item
+-grid cell
+-grid tracks (column y row)
+-grid area
+-grid line (column line y row line)
+
+grid-item solo aplica a los hijos directos de los contenedores (grid-container)
+grid-cells siempre van a ser cuadrilateros con lados paralelos
+grid-tracks son la suma del total de filas y el total de columnas
+grid-area definidas por usuario, celdas consecutivas tanto vertical como horizontal
+grid-lines lados para definir una fila o una columna
+
+grid-gap: row column (grid-container)
+grid-row-start (grid-item)
+grid-row-end (grid-item)
+grid-column-start (grid-item)
+grid-column-end (grid-item)
+grid-row (grid-item)
+grid-column (grid-item)
+repeat(cantidad, tamano(s))
+
+### Grid Implicito y Explicito ###
+grid-auto-rows (Igual que el template)
+grid-auto-columns (Igual que el template)
+grid-auto-flow Row(Default), Column y Dense
+
+
+### Grid Dinamico ###
+minmax()
+min-content
+max-content
+
+auto-fill
+auto-fit
+
+### Alineacion y Control de Flujo ###
+La alineacion es dentro de cada celda y no alineacion total del container
+
+justify-items
+justify-contents (space-around, space-between, space-evenly)
+align-items
+align-contents (space-around, space-between, space-evenly)
+
+stretch
+
+place-items: align-items, justify-items
+*/
+
+* {
+    font-family: 'Sen', sans-serif;
+    font-weight: 100;
+}
+
+body {
+    background: radial-gradient(circle, #fff, #bbb);
+    padding: 15px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    grid-template-rows: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    grid-auto-columns: 1fr;
+    border: 3px solid #000;
+    background-color: #333;
+    grid-auto-flow: dense;
+    /*
+    justify-content: space-evenly;
+    align-content: space-evenly;
+    */
+    justify-items: center;
+    align-items: center;
+    height: 600px;
+}
+
+.grid-item {
+    border: 1px solid #000;
+    background-color: #999;
+    font-size: 30px;
+    padding: 50px;
+}
+
+.grid-item:nth-child(1) {
+    align-self: start;
+    justify-self: start;
+    background: #f00;
+}
+
+.grid-item:nth-child(3) {
+    align-self: start;
+    justify-self: end;
+    background: #f00;
+}
+
+.grid-item:nth-child(4) {
+    justify-self: end;
+}
+
+.grid-item:nth-child(5) {
+    background: #0f0;
+}
+
+.grid-item:nth-child(6) {
+    justify-self: start;
+}
+
+.grid-item:nth-child(7) {
+    align-self: end;
+    justify-self: start;
+    background: #f00;
+}
+
+.grid-item:nth-child(9) {
+    justify-self: end;
+    align-self: end;
+    background: #f00;
+}

@@ -1,0 +1,52 @@
+/*
+Filter
+none
+blur(px)
+brightness(0-1)
+contrast(number or %)
+drop-shadow(medidas)
+grayscale(%)
+hue-rotate(deg)
+invert(%)
+opacity(%)
+saturate(%)
+sepia(%)
+url("filters.svg#filter-id#)
+*/
+
+* {
+    font-family: 'Sen', sans-serif;
+    font-weight: 100;
+}
+
+.container {
+    filter: sepia(1);
+}
+
+.p-container {
+    filter: contrast(30);
+    background-color: #fff;
+}
+
+.caja {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    background: #f00;
+    margin: 40px;
+    border-radius: 50%;
+    filter: blur(20px);
+}
+
+.caja:first-child {
+    animation: trasladar 3s alternate infinite;
+}
+
+@keyframes trasladar {
+    0% {
+        transform: translate(0);
+    }
+    100% {
+        transform: translate(160px);
+    }
+}

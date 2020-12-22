@@ -1,0 +1,429 @@
+/*
+selector {
+    propiedad: valor;
+}
+
+CSS Selector
+Universal (*) - selecciona todos los elementos
+De tipo - selecciona el tipo del DOM por etiquetas
+Por clases (.) - Selecciona elementos por medio de clase
+Por ID (#) - Selecciona elementos por medio de ID elementos unicos
+Por atributo ([atributo="valor"]) - Seleccional elementos por medio de atributos en etiquetas
+Por descendiente - Elementos DOM por etiquetas de izquierda a derecha. Tambien por clases
+Por pseudoclases (:) - atributo:pseudoclase
+
+Especificidades
+1. Important
+2. Inline styles
+3. Identifiers
+4. classes, pseudo-classes, attributes
+5. elements, pseudo-elements
+
+Metodologia BEM
+Todo contenedor debe tener la propiedad "class"
+<nombre de clase de contenedor padre>__<nombre de clase de hijo>-<nombre de clase de hijo de hijo>-...
+Para diferenciar una clase de un grupo de clases con el mismo nombre, anadir -- de la siguiente manera:
+<nombre de clase de contenedor padre>__<nombre de clase de hijo>-<nombre de clase de hijo de hijo>-...--<differenciador>
+
+Unidades
+em por defecto es de 16px en el navegador (Google chrome). Se define en la clase paterna el tamano de un em
+vw (viewport width) - Porcentage del ancho de la pantalla
+vh (viewport height) - Porcentage del alto de la pantalla
+
+Propiedades de texto
+Para mas recursos de fuentes visitar fonts.google.com
+
+Normalize.css es un archivo que estandariza la vista del sitio web
+
+Cajas
+Dos tipos, en linea y en bloque
+- Elementos en bloque ocupan toda la caja
+- Elementos en linea ocupan el espacion del contenido
+- Elementos en linea no se les puede dar 'height', 'widht'
+padding order: top, right, bottom, left
+
+Box Model
+content - line-height
+padding - padding
+border - border
+margin - margin
+-------------------------------------------------------|
+|                 margin                               |
+|                 border                               |
+|                                                      |
+|                 padding                              |
+|                                                      |
+|                  texto                               |
+|                                                      |
+|                 padding                              |
+|                                                      |
+|                 border                               |
+|                 margin                               |
+-------------------------------------------------------|
+
+Position
+- static
+- relative: el espacio se reserva
+- absolute: el espacio no se reserva, posiciona a partir del contenedor
+- fixed: la posicion queda fija en la pantalla
+- sticky: la posicion queda fija a partir de una posicion relativa
+propiedades top y left son las mas importantes
+z-index tiene conflicto entre padres e hijos
+
+Display
+BLOCK
+INLINE
+INLINE-BLOCK
+GRID
+FLEX
+INLINE-FLEX
+INLINE-GRID
+
+Pseudo-Elementos
+No hacen parte del DOM para los elementos que requieren la etiqueta content
+::first-line       | BLOCK
+::first-letter     | BLOCK
+::placeholder
+::after            | HIJOS - CONTENT (NECESARIO) - INLINE and BLOCK
+::before           | HIJOS - CONTENT (NECESARIO) - INLINE and BLOCK
+::selection
+
+Pseudo-Clases
+:hover - Cambia al acercar mouse al elemento
+:link - Cambia a visitar otro link. Propiedades se muestran cuando no se ha cargado el link
+:visited - Cambia propiedades de links que ya han cargado
+:active - Mientras este activo (click mouse presionado) se cambian las propiedades
+:focus - Cuando se selecciona el elemento input, cambia de propiedades
+:lang - Funcion (i.e. lang(es)) cambia propiedades del elemento
+
+Object Fit
+Contain - Resoluciones reales de la imagen se ajusta al contenido del contenedor
+Cover - Imagen se ajusta al contenedor y recorta los bordes
+None - Agranda imagen a resolucion que tiene originalmente la imagen
+Scale-Down - Se queda con la mejor propiedad (la resolucion mas chica)
+*/
+
+* {
+    font-family: Lobster, cursive;
+    font-weight: normal;
+    font-size: 40px;
+}
+
+.contact-form {
+    font-size: 20px;
+    background-color: #000;
+    width: 50vw;
+    height: 100vh;
+}
+
+.contact-form__h2 {
+    color: white;
+    background-color: #000;
+    font-size: 2em;
+    line-height: 1;
+    /* Grosor de la letra */
+    font-stretch: normal;
+    font-variant: small-caps
+}
+
+.contact-form__p {
+    color: white;
+}
+
+.h2-title {
+    display: inline-block;
+    background-color: red;
+    padding: 50px;
+    margin: 20px 10px;
+    border-radius: 10%;
+    border: 5px solid #a22;
+    box-shadow: 30px 20px 10px 10px #000;
+    transform: rotate(-45deg);
+}
+
+.contenedor {
+    position: relative;
+    border: 4px solid #a22;
+    margin: 50px auto;
+    height: 450px;
+    width: 450px;
+    background: green
+}
+
+div div {
+    height: 100px;
+    width: 100px;
+    background: yellow;
+}
+
+.contenedor__caja1 {
+    position: absolute;
+}
+
+.contenedor__caja2 {
+    position: absolute;
+    right: 0;
+}
+
+.contenedor__caja3 {
+    position: absolute;
+    bottom: 0
+}
+
+.contenedor__caja4 {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.contenedor__caja5 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto
+}
+
+.caja-fixed {
+    background: red;
+    position: sticky;
+    opacity: .4;
+    top: 50px;
+}
+
+.box-class {
+    width: 300px;
+    height: 150px;
+    margin: 20px;
+    border: 10px solid red;
+    background: yellow;
+    display: inline-block;
+}
+
+.box-class2 {
+    margin: auto;
+    margin-top: 50px;
+    width: 320px;
+    height: 350px;
+    border: 4px solid red;
+    background: grey;
+    overflow-y: scroll;
+    overflow-x: scroll;
+}
+
+.texto {
+    padding: 20px;
+    width: 50%;
+    height: 20em;
+    border: 4px solid red;
+    overflow: auto;
+}
+
+.texto::first-line {
+    color: blue;
+    font-size: 2em;
+}
+
+.texto::selection {
+    color: #fff;
+    background-color: #000;
+}
+
+.form-class {
+    margin: 100px auto;
+    display: block;
+    background-color: #555;
+    padding: 100px;
+    width: 50%
+}
+
+.form-class__input {
+    padding: 6px;
+    width: 100%;
+}
+
+.form-class__input::placeholder {
+    color: red;
+    background-color: yellow;
+    font-size: 1.4em;
+}
+
+.form-class__b::before {
+    content: "me subscribi";
+    color: #fff;
+}
+
+.form-class__b::after {
+    content: "todo tendencias";
+    color: red;
+    background: #621;
+}
+
+.div-caja {
+    height: 100px;
+    width: 300px;
+    background: slateblue;
+    transition: all 1s
+}
+
+.div-caja:hover {
+    background: darkslateblue;
+    height: 150px;
+    width: 400px;
+}
+
+.div-caja__a:link {
+    color: blue;
+}
+
+.div-caja__a:visited {
+    color: violet;
+}
+
+.div-caja2 {
+    width: 250px;
+    height: 250px;
+    background: red;
+    margin: 25px;
+    transition: all 1s;
+}
+
+.div-caja2:active {
+    background: blue;
+    width: 600px;
+}
+
+.input-caja3 {
+    margin: 25px;
+    background: lightgrey;
+    transition: background 1s, padding .4s;
+}
+
+.input-caja3:focus {
+    background: white;
+    padding: 20px;
+}
+
+.div-box-objfit {
+    margin: 25px;
+    width: 220px;
+    height: 300px;
+}
+
+.div-box-objfit img {
+    height: 100%;
+    width: 100%;
+    border: 4px solid red;
+    object-fit: cover;
+    object-position: right;
+}
+
+.responsive-caja,
+.responsive-caja2 {
+    width: 45%;
+    display: inline-block;
+    padding: 20px;
+    background: #ddd;
+}
+
+
+/* Menu responsive example */
+
+.nav__responsive-ul {
+    display: none;
+}
+
+.nav {
+    background-color: #48e;
+}
+
+.nav__li {
+    display: inline-block;
+    padding: 12px;
+    color: #fff;
+}
+
+.nav__li:hover>a {
+    color: #f00;
+}
+
+.nav__li:hover {
+    color: #bbb;
+}
+
+.nav__li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav__li i {
+    box-sizing: border-box;
+    text-align: right;
+    margin-right: 5px;
+}
+
+.nav__responsive-button-container {
+    position: absolute;
+    width: 100%;
+    font-size: 25px;
+    background-color: #69c;
+    margin-top: -64px;
+    z-index: 100;
+}
+
+.nav__responsive-button {
+    padding: 6px 20px;
+    text-align: right;
+    width: 100%;
+}
+
+@media only screen and (max-width: 800px) {
+    .nav {
+        height: 64px;
+        width: 100%;
+        background-color: #69c;
+    }
+    .nav__ul {
+        display: none;
+    }
+    .nav__responsive-ul {
+        display: block;
+        position: absolute;
+        width: 100%;
+        background: #9bf;
+        margin-top: 37px;
+        padding-top: 27px;
+    }
+    .nav__li-container {
+        position: relative;
+        top: -100%;
+        height: calc(100vh - 64px);
+        /*
+        background-color: #9bf;
+        transition: all 1s;
+        z-index: 1;
+        */
+    }
+    .nav__responsive-li {
+        width: 100%;
+        padding: 9px 20px;
+    }
+    .nav__responsive-li i {
+        box-sizing: border-box;
+        text-align: center;
+        margin-right: 5px;
+        width: 30px;
+        color: #016;
+    }
+    .nav__responsive-li a {
+        color: #016;
+        text-decoration: none;
+        padding: 0px 25px;
+    }
+    /*
+    .responsive__ul:hover>nav__li-container {
+        top: -27px;
+    }
+    */
+}
